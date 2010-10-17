@@ -1,0 +1,10 @@
+﻿<application title="InternodeRadioMCE" id="{dcab1291-0ee8-402c-b366-0ed1ecabc5bc}">
+	<entrypoint id="{c7ba943c-19d8-4380-a34c-1586ca38290e}"
+				addin="InternodeRadioMCE.MyAddIn, InternodeRadioMCE,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=f5eb0245d02b057f"
+				title="Streaming Radio"
+				description="Internode unmetered streaming music"
+				ImageUrl=".\Application.png">
+		<category category="Internet Radio"/>
+		<category category="More Programs"/>
+	</entrypoint>
+</application>
