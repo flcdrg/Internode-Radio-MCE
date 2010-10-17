@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Code\Application.cs" />
     <Compile Include="Code\Launch.cs" />
+    <Compile Include="Code\Radio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -104,7 +105,6 @@
     <None Include="Setup\Build.cmd" />
     <None Include="Setup\License.rtf" />
     <None Include="Setup\License.txt" />
-    <None Include="Setup\LicenseAccessible.txt" />
     <None Include="Setup\Setup-en-us.wxl" />
     <None Include="Setup\Setup.wxs" />
     <None Include="Readme.htm" />
@@ -129,7 +129,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>%25windir%25\eHome\McmlVerifier.exe -verbose -assemblyredirect:"$(FullyQualifiedOutputPath)" -directory:"$(ProjectDir)Markup"
-REM "$(ProjectDir)Setup\Build.cmd" $(ConfigurationName)</PostBuildEvent>
+"$(ProjectDir)Setup\Build.cmd" $(ConfigurationName)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -40,7 +40,7 @@ namespace InternodeRadioMCE
 
         public void GoToMenu()
         {
-            Dictionary<string, object> properties = new Dictionary<string, object>();
+            var properties = new Dictionary<string, object>();
             properties["Application"] = this;
 
             if (session != null)
@@ -61,7 +61,7 @@ namespace InternodeRadioMCE
 
             if (session != null)
             {
-                if (MediaCenterEnvironment.PlayMedia(MediaType.Audio, link, true))
+                if (MediaCenterEnvironment.PlayMedia(MediaType.Audio, link, false))
                     MediaExperience.GoToFullScreen(); 
 
                 
@@ -77,9 +77,9 @@ namespace InternodeRadioMCE
         {
             get
             {
-                XDocument feedXML = XDocument.Load("http://feeds.internode.on.net/radio.rss");
+                XDocument feedXml = XDocument.Load("http://feeds.internode.on.net/radio.rss");
 
-                var feeds = from feed in feedXML.Descendants("item")
+                var feeds = from feed in feedXml.Descendants("item")
                             select new Radio()
                             {
                                 Title = feed.Element("title").Value,
@@ -95,12 +95,5 @@ namespace InternodeRadioMCE
                 return array; // new string[4] { "Alpha", "Bravo", "Charlie", "Delta" };
             }
         }
-    }
-
-    public class Radio
-    {
-        public string Title { get; set; }
-        public string Link { get; set; }
-        public string Description { get; set; }
     }
 }
