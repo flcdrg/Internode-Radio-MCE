@@ -47,8 +47,8 @@
     <!-- That file (License.rtf) is defined within the <WixVariable> element below.                      -->
     <Binary Id="License.txt"
             SourceFile="..\setup\License.txt" />
-    <Binary Id="LicenseAccessible.txt"
-            SourceFile="..\setup\LicenseAccessible.txt" />
+    <!--<Binary Id="LicenseAccessible.txt"
+            SourceFile="..\setup\LicenseAccessible.txt" />-->
 
     <!-- This custom action prevents users from installing if a newer version of this product is already -->
     <!-- installed on the system. This is a part of Windows Installer major upgrade functionality.       -->
@@ -78,7 +78,7 @@
       <Directory Id="ProgramFilesFolder"
                  Name="Program Files">
         <Directory Id="MyCompany"
-                   Name="MyCompany">
+                   Name="David Gardiner">
           <Directory Id="APPROOTDIRECTORY"
                      Name="InternodeRadioMCE"/>
         </Directory>

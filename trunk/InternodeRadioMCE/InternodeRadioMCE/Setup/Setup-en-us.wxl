@@ -5,13 +5,13 @@
 	<String Id="LaunchCondition_LaterVersion">A later version of [ProductName] is already installed.</String>
 	<String Id="LaunchCondition_WrongOSVersion">[ProductName] was not designed for this version of Windows Media Center or you don't have Windows Media Center.</String>
 
-	<String Id="Property_ArpHelpLink">http://msdn.microsoft.com/mce/</String>
-	<String Id="Property_ArpUrlInfoAbout">http://msdn.microsoft.com/mce/</String>
+	<String Id="Property_ArpHelpLink">http://code.google.com/p/internoderadiomce/</String>
+	<String Id="Property_ArpUrlInfoAbout">http://david.gardiner.net.au</String>
 	<String Id="Property_ProductLanguage">1033</String>
-	<String Id="Property_ProductName">InternodeRadioMCE</String>
-	<String Id="Property_CompanyName">MyCompany</String>
+	<String Id="Property_ProductName">Internode Radio MCE</String>
+	<String Id="Property_CompanyName">David Gardiner</String>
 
-	<String Id="Package_Description">InternodeRadioMCE</String>
+	<String Id="Package_Description">Internode Radio for Windows Media Center</String>
 	<String Id="Package_Comments">This Installer database contains the logic and data required to install InternodeRadioMCE.</String>
 
 </WixLocalization>
