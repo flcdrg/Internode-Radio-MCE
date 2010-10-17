@@ -1,0 +1,62 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      xmlns:cor="assembly://MsCorLib/System"
+      xmlns:a="assembly://InternodeRadioMCE/InternodeRadioMCE"
+      xmlns:s="resx://InternodeRadioMCE/InternodeRadioMCE.Resources/Styles"
+      xmlns:r="resx://InternodeRadioMCE/InternodeRadioMCE.Resources/RepeatItem">
+
+  <UI Name="Default">
+
+    <Properties>
+      <a:Application Name="Application"
+                     Application="$Required"/>
+    </Properties>
+
+    <Locals>
+      <ScrollingHandler Name="ScrollingHandler" HandleHomeEndKeys="true"
+                        HandleDirectionalKeys="true" HandlePageKeys="true"/>
+      <ScrollingData Name="ScrollingData" />
+    </Locals>
+
+    <Rules>
+      <Default Target="[ScrollingHandler.ScrollingData]" Value="[ScrollingData]"/>
+      
+      
+    </Rules>
+
+    <Content>
+      <Panel Layout="Center">
+        <Children>
+
+          <Scroller Orientation="Vertical" FadeSize="-20" ScrollingData="[ScrollingData]" >
+            <Children>
+
+          <Repeater Source="[Application.MyData]" >
+            <Layout>
+              <FlowLayout Orientation="Vertical"
+                          Spacing="4,0"/>
+            </Layout>
+            <Content>
+              <r:RepeatItem Text="[RepeatedItem!a:Radio.Title!cor:String]" 
+                            Link="[RepeatedItem!a:Radio.Link!cor:String]" 
+                            Description="[RepeatedItem!a:Radio.Description!cor:String]" 
+                            Application="[Application]"/>
+            </Content>
+          </Repeater>
+
+            </Children>
+          </Scroller>
+
+          <NowPlaying
+    ShowFullMetadata="Default"
+    SnapToDefaultPosition="true"
+/>
+        </Children>
+      </Panel>
+      
+
+
+    </Content>
+
+  </UI>
+
+</Mcml>
