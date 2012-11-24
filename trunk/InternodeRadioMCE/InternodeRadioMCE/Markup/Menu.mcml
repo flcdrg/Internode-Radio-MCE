@@ -14,13 +14,18 @@
     <Locals>
       <ScrollingHandler Name="ScrollingHandler" HandleHomeEndKeys="true"
                         HandleDirectionalKeys="true" HandlePageKeys="true"/>
-      <ScrollingData Name="ScrollingData" />
+      <ScrollingData Name="ScrollingData" PageStep="100" />
     </Locals>
 
     <Rules>
       <Default Target="[ScrollingHandler.ScrollingData]" Value="[ScrollingData]"/>
-      
-      
+
+      <!--<Changed Source="[Application.MyData]">
+        <Actions>
+          <Set Target="[Label.Content]" Value="The color changed!" />
+        </Actions>
+      </Changed>-->
+
     </Rules>
 
     <Content>
@@ -46,10 +51,7 @@
             </Children>
           </Scroller>
 
-          <NowPlaying
-    ShowFullMetadata="Default"
-    SnapToDefaultPosition="true"
-/>
+
         </Children>
       </Panel>
       

@@ -105,8 +105,12 @@
     <None Include="Setup\Build.cmd" />
     <None Include="Setup\License.rtf" />
     <None Include="Setup\License.txt" />
-    <None Include="Setup\Setup-en-us.wxl" />
-    <None Include="Setup\Setup.wxs" />
+    <None Include="Setup\Setup-en-us.wxl">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Setup\Setup.wxs">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Readme.htm" />
     <None Include="Setup\Registration.xml" />
     <None Include="Images\Application.png" />

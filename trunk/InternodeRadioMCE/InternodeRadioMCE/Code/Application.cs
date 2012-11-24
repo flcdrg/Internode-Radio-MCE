@@ -12,6 +12,7 @@ namespace InternodeRadioMCE
     {
         private AddInHost host;
         private HistoryOrientedPageSession session;
+        private ArrayListDataSet _myData;
 
         public Application()
             : this(null, null)
@@ -22,6 +23,14 @@ namespace InternodeRadioMCE
         {
             this.session = session;
             this.host = host;
+
+            _myData = new ArrayListDataSet();
+            var list = GetFeedList();
+            foreach (var radio in list)
+            {
+                _myData.Add(radio);
+
+            }
         }
 
         public MediaCenterEnvironment MediaCenterEnvironment
@@ -53,47 +62,48 @@ namespace InternodeRadioMCE
             }
         }
 
-        public void DialogTest(string strClickedText, string link)
+        public void PlayRadioItem(string strClickedText, string link)
         {
-            int timeout = 5;
-            bool modal = true;
-            string caption = Resources.DialogCaption;
-
             if (session != null)
             {
                 if (MediaCenterEnvironment.PlayMedia(MediaType.Audio, link, false))
                     MediaExperience.GoToFullScreen(); 
-
-                
             }
             else
             {
-                Debug.WriteLine("DialogTest");
+                Debug.WriteLine("PlayRadioItem");
             }
         }
 
-        
-        public Radio[] MyData
+        public ArrayListDataSet MyData
+        {
+            get { return _myData; }
+        }
+
+        public Radio[] MyData2
         {
             get
             {
-                XDocument feedXml = XDocument.Load("http://feeds.internode.on.net/radio.rss");
-
-                var feeds = from feed in feedXml.Descendants("item")
-                            select new Radio()
-                            {
-                                Title = feed.Element("title").Value,
-                                Link = feed.Element("link").Value,
-                                Description = feed.Element("description").Value
-                            };
-
-                var list = new Choice();
-                var array = feeds.OrderBy(x => x.Title).ToArray();
-                list.Options = array;
+                Radio[] array = GetFeedList();
 
                 //return list;
                 return array; // new string[4] { "Alpha", "Bravo", "Charlie", "Delta" };
             }
+        }
+
+        private Radio[] GetFeedList()
+        {
+            XDocument feedXml = XDocument.Load("http://feeds.internode.on.net/radio.rss");
+
+            var feeds = from feed in feedXml.Descendants("item")
+                        select new Radio()
+                                   {
+                                       Title = feed.Element("title").Value,
+                                       Link = feed.Element("link").Value,
+                                       Description = feed.Element("description").Value
+                                   };
+
+            return feeds.OrderBy(x => x.Title).ToArray();
         }
     }
 }
