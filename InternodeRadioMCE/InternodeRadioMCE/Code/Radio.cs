@@ -1,9 +1,10 @@
-﻿namespace InternodeRadioMCE
+﻿using Microsoft.MediaCenter.UI;
+
+namespace InternodeRadioMCE
 {
-    public class Radio
+    public class Radio : ModelItem
     {
         public string Title { get; set; }
         public string Link { get; set; }
-        public string Description { get; set; }
     }
 }
